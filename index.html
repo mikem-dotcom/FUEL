@@ -704,6 +704,9 @@
 </head>
 <body>
 
+<!-- ZXing library for Safari-compatible barcode scanning -->
+<script src="https://unpkg.com/@zxing/library@0.19.1/umd/index.min.js"></script>
+
 <!-- BARCODE SCANNER OVERLAY -->
 <div class="barcode-overlay" id="barcodeOverlay">
   <video class="barcode-video" id="barcodeVideo" playsinline autoplay muted></video>
@@ -1226,46 +1229,45 @@ document.getElementById('modalOverlay').addEventListener('click', function(e) {
   if (e.target === this) closeModal();
 });
 
-// BARCODE SCANNER
+// ─── BARCODE SCANNER (ZXing — works on Safari iOS) ───────────────────────────
+let zxingReader = null;
 let scanStream = null;
-let barcodeDetector = null;
-let scanInterval = null;
 
 async function openScanner() {
   const overlay = document.getElementById('barcodeOverlay');
   const status = document.getElementById('barcodeStatus');
-  if (!('BarcodeDetector' in window)) {
-    alert('Barcode scanning is not supported on this browser. Try Safari on iOS 16+ or Chrome on Android.');
-    return;
-  }
+
   try {
-    barcodeDetector = new BarcodeDetector({ formats: ['ean_13', 'ean_8', 'upc_a', 'upc_e', 'code_128', 'code_39'] });
+    // Request camera access
     scanStream = await navigator.mediaDevices.getUserMedia({
       video: { facingMode: 'environment', width: { ideal: 1280 }, height: { ideal: 720 } }
     });
+
     const video = document.getElementById('barcodeVideo');
     video.srcObject = scanStream;
     overlay.classList.add('visible');
     status.textContent = 'Point camera at barcode';
-    scanInterval = setInterval(async () => {
-      if (video.readyState !== video.HAVE_ENOUGH_DATA) return;
-      try {
-        const barcodes = await barcodeDetector.detect(video);
-        if (barcodes.length > 0) {
-          const code = barcodes[0].rawValue;
-          status.textContent = `Found: ${code} — looking up...`;
-          clearInterval(scanInterval);
-          await lookupBarcode(code);
-        }
-      } catch (e) {}
-    }, 400);
+
+    // Use ZXing to decode from video stream
+    zxingReader = new ZXing.BrowserMultiFormatReader();
+    zxingReader.decodeFromStream(scanStream, video, async (result, err) => {
+      if (result) {
+        const code = result.getText();
+        status.textContent = `Found: ${code} — looking up...`;
+        // Stop scanning once we have a result
+        zxingReader.reset();
+        await lookupBarcode(code);
+      }
+      // Ignore errors — they fire continuously until a barcode is found
+    });
+
   } catch (e) {
     alert('Could not access camera. Please allow camera access and try again.');
   }
 }
 
 function closeScanner() {
-  clearInterval(scanInterval);
+  if (zxingReader) { zxingReader.reset(); zxingReader = null; }
   if (scanStream) { scanStream.getTracks().forEach(t => t.stop()); scanStream = null; }
   document.getElementById('barcodeOverlay').classList.remove('visible');
   document.getElementById('barcodeVideo').srcObject = null;
@@ -1279,7 +1281,7 @@ async function lookupBarcode(barcode) {
     const data = await res.json();
     if (data.status !== 1 || !data.product) {
       status.textContent = 'Product not found. Try searching by name.';
-      setTimeout(() => { closeScanner(); }, 2000);
+      setTimeout(() => closeScanner(), 2000);
       return;
     }
     closeScanner();
@@ -1312,8 +1314,10 @@ async function lookupBarcode(barcode) {
 // INIT
 renderMeals();
 </script>
+  <script>
     if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/FUEL/sw.js');
-  }
+      navigator.serviceWorker.register('/FUEL/sw.js');
+    }
+  </script>
 </body>
 </html>
