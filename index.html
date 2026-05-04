@@ -5,10 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FUEL — Nutrition Tracker</title>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="manifest" href="manifest.json">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="FUEL">
 <style>
   :root {
     --bg: #0d0d0f;
@@ -195,7 +191,10 @@
     align-items: center;
     gap: 16px;
   }
-  .water-icon { font-size: 28px; flex-shrink: 0; }
+  .water-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+  }
   .water-info { flex: 1; }
   .water-label {
     font-size: 11px;
@@ -244,7 +243,10 @@
   }
 
   /* SEARCH */
-  .search-wrap { position: relative; margin-bottom: 16px; }
+  .search-wrap {
+    position: relative;
+    margin-bottom: 16px;
+  }
   .search-input {
     width: 100%;
     background: var(--surface);
@@ -325,9 +327,19 @@
   .food-item:hover { background: var(--surface2); }
   .food-name { flex: 1; font-size: 14px; font-weight: 500; }
   .food-serving { font-size: 12px; color: var(--muted); margin-top: 2px; }
-  .food-macros { display: flex; gap: 8px; align-items: center; font-size: 12px; }
+  .food-macros {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    font-size: 12px;
+  }
   .food-cal { font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 700; color: var(--accent); }
-  .macro-dot { display: flex; flex-direction: column; align-items: center; gap: 1px; }
+  .macro-dot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1px;
+  }
   .macro-dot-val { font-size: 11px; font-weight: 500; }
   .macro-dot-label { font-size: 9px; color: var(--muted); letter-spacing: 0.5px; }
   .del-btn {
@@ -342,6 +354,7 @@
     line-height: 1;
   }
   .del-btn:hover { color: var(--red); }
+
   .add-food-btn {
     width: 100%;
     background: transparent;
@@ -360,7 +373,7 @@
   }
   .add-food-btn:hover { color: var(--green); border-color: rgba(58,255,140,0.3); }
 
-  /* MODAL */
+  /* SEARCH RESULTS MODAL */
   .modal-overlay {
     display: none;
     position: fixed;
@@ -433,7 +446,12 @@
   .result-item:hover { background: var(--surface2); }
   .result-name { font-size: 14px; font-weight: 500; margin-bottom: 3px; }
   .result-brand { font-size: 12px; color: var(--muted); }
-  .result-macros { display: flex; gap: 10px; align-items: center; flex-shrink: 0; }
+  .result-macros {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-shrink: 0;
+  }
   .result-cal {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 18px;
@@ -442,7 +460,7 @@
   }
   .result-macro-row { font-size: 11px; color: var(--muted); text-align: right; }
 
-  /* SERVING STEP */
+  /* SERVING SIZE STEP */
   .serving-step { display: none; }
   .serving-step.visible { display: block; }
   .serving-name {
@@ -452,7 +470,12 @@
     margin-bottom: 4px;
   }
   .serving-brand { font-size: 13px; color: var(--muted); margin-bottom: 16px; }
-  .serving-controls { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .serving-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
   .serving-input {
     width: 80px;
     background: var(--surface2);
@@ -515,17 +538,35 @@
   }
   .back-btn:hover { color: var(--text); }
 
-  .search-loading { text-align: center; padding: 32px; color: var(--muted); font-size: 14px; display: none; }
-  .search-empty { text-align: center; padding: 32px; color: var(--muted); font-size: 14px; display: none; }
+  /* SEARCH LOADING */
+  .search-loading {
+    text-align: center;
+    padding: 32px;
+    color: var(--muted);
+    font-size: 14px;
+    display: none;
+  }
+  .search-empty {
+    text-align: center;
+    padding: 32px;
+    color: var(--muted);
+    font-size: 14px;
+    display: none;
+  }
 
-  /* STATS */
+  /* STATS VIEW */
   .stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 12px;
     margin-bottom: 24px;
   }
-  .stats-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+  .stats-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+  }
   .stats-label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
   .stats-val { font-family: 'Barlow Condensed', sans-serif; font-size: 30px; font-weight: 800; line-height: 1; }
   .stats-sub { font-size: 12px; color: var(--muted); margin-top: 4px; }
@@ -542,10 +583,17 @@
     justify-content: space-between;
   }
   .history-date { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 1px; }
+  .history-macros { display: flex; gap: 12px; font-size: 13px; }
   .history-cal { font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 800; color: var(--accent); }
 
-  /* GOALS */
-  .goal-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 12px; }
+  /* GOALS VIEW */
+  .goal-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 12px;
+  }
   .goal-label { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
   .goal-row { display: flex; align-items: center; gap: 12px; }
   .goal-input {
@@ -578,7 +626,12 @@
     margin-top: 8px;
   }
   .save-goals-btn:hover { opacity: 0.9; }
-  .goal-hint { font-size: 12px; color: var(--muted); margin-top: 6px; line-height: 1.5; }
+  .goal-hint {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 6px;
+    line-height: 1.5;
+  }
 
   /* BARCODE SCANNER */
   .scan-btn {
@@ -613,7 +666,12 @@
     letter-spacing: 1px;
     text-transform: uppercase;
   }
-  .scan-divider::before, .scan-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .scan-divider::before, .scan-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
   .barcode-overlay {
     display: none;
     position: fixed;
@@ -623,7 +681,11 @@
     flex-direction: column;
   }
   .barcode-overlay.visible { display: flex; }
-  .barcode-video { width: 100%; flex: 1; object-fit: cover; }
+  .barcode-video {
+    width: 100%;
+    flex: 1;
+    object-fit: cover;
+  }
   .barcode-ui {
     position: absolute;
     inset: 0;
@@ -651,7 +713,10 @@
     opacity: 0.7;
     animation: scanLine 1.8s ease-in-out infinite;
   }
-  @keyframes scanLine { 0%, 100% { top: 20%; } 50% { top: 80%; } }
+  @keyframes scanLine {
+    0%, 100% { top: 20%; }
+    50% { top: 80%; }
+  }
   .barcode-hint {
     margin-top: 20px;
     font-family: 'Barlow Condensed', sans-serif;
@@ -704,9 +769,7 @@
 </head>
 <body>
 
-<!-- ZXing library for Safari-compatible barcode scanning -->
-<script src="https://unpkg.com/@zxing/library@0.19.1/umd/index.min.js"></script>
-
+<!-- FOOD SEARCH MODAL -->
 <!-- BARCODE SCANNER OVERLAY -->
 <div class="barcode-overlay" id="barcodeOverlay">
   <video class="barcode-video" id="barcodeVideo" playsinline autoplay muted></video>
@@ -718,7 +781,6 @@
   <button class="barcode-close-btn" onclick="closeScanner()">Cancel</button>
 </div>
 
-<!-- FOOD SEARCH MODAL -->
 <div class="modal-overlay" id="modalOverlay">
   <div class="modal">
     <div class="modal-header">
@@ -791,6 +853,8 @@
 
   <!-- TODAY VIEW -->
   <div class="view active" id="view-today">
+
+    <!-- Calorie Ring + Macros -->
     <div class="macro-overview">
       <div class="cal-card">
         <div class="cal-ring">
@@ -809,18 +873,21 @@
           <div class="cal-remaining" id="calRemaining">2000 remaining</div>
         </div>
       </div>
+
       <div class="macro-card">
         <div class="macro-card-label">Protein</div>
         <div class="macro-card-val" style="color:var(--protein-color)"><span id="proConsumed">0</span>g</div>
         <div class="macro-bar"><div class="macro-bar-fill" id="proBar" style="background:var(--protein-color);width:0%"></div></div>
         <div class="macro-card-sub">Goal: <span id="proGoalDisplay">150</span>g</div>
       </div>
+
       <div class="macro-card">
         <div class="macro-card-label">Carbs</div>
         <div class="macro-card-val" style="color:var(--carb-color)"><span id="carbConsumed">0</span>g</div>
         <div class="macro-bar"><div class="macro-bar-fill" id="carbBar" style="background:var(--carb-color);width:0%"></div></div>
         <div class="macro-card-sub">Goal: <span id="carbGoalDisplay">200</span>g</div>
       </div>
+
       <div class="macro-card">
         <div class="macro-card-label">Fat</div>
         <div class="macro-card-val" style="color:var(--fat-color)"><span id="fatConsumed">0</span>g</div>
@@ -829,6 +896,7 @@
       </div>
     </div>
 
+    <!-- Water -->
     <div class="water-card">
       <div class="water-icon">💧</div>
       <div class="water-info">
@@ -842,14 +910,17 @@
       </div>
     </div>
 
+    <!-- Meals -->
     <div class="section-label">Meals</div>
     <div id="mealsContainer"></div>
+
   </div>
 
   <!-- HISTORY VIEW -->
   <div class="view" id="view-history">
     <div style="font-family:'Barlow Condensed',sans-serif;font-size:42px;font-weight:900;margin-bottom:4px;">HISTORY</div>
     <div style="font-size:13px;color:var(--muted);margin-bottom:24px;">Your nutrition log over time</div>
+
     <div class="stats-grid">
       <div class="stats-card">
         <div class="stats-label">Avg Calories</div>
@@ -872,6 +943,7 @@
         <div class="stats-sub">closest to goal</div>
       </div>
     </div>
+
     <div class="section-label" style="margin-top:0">Daily Log</div>
     <div id="historyList"></div>
   </div>
@@ -880,6 +952,7 @@
   <div class="view" id="view-goals">
     <div style="font-family:'Barlow Condensed',sans-serif;font-size:42px;font-weight:900;margin-bottom:4px;">GOALS</div>
     <div style="font-size:13px;color:var(--muted);margin-bottom:24px;">Set your daily nutrition targets</div>
+
     <div class="goal-card">
       <div class="goal-label">Daily Calorie Target</div>
       <div class="goal-row">
@@ -918,12 +991,14 @@
       </div>
       <div class="goal-hint">8 glasses (64 oz) is the standard target. Aim for more on workout days.</div>
     </div>
+
     <button class="save-goals-btn" onclick="saveGoals()">Save Goals</button>
   </div>
 
 </main>
 
 <script>
+// ─── STATE ────────────────────────────────────────────────────
 const DEFAULT_GOALS = { cal: 2000, pro: 150, carb: 200, fat: 65, water: 8 };
 const MEALS = ['Breakfast', 'Lunch', 'Dinner', 'Snacks'];
 
@@ -944,8 +1019,10 @@ let searchTimer = null;
 function save() { localStorage.setItem('fuelState', JSON.stringify(state)); }
 function today() { return state.days[todayKey]; }
 
+// ─── DATE ─────────────────────────────────────────────────────
 document.getElementById('headerDate').textContent = new Date().toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
 
+// ─── VIEWS ────────────────────────────────────────────────────
 function showView(name, btn) {
   document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
   document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
@@ -955,6 +1032,7 @@ function showView(name, btn) {
   if (name === 'goals') loadGoals();
 }
 
+// ─── TOTALS ───────────────────────────────────────────────────
 function getTotals() {
   let cal = 0, pro = 0, carb = 0, fat = 0;
   MEALS.forEach(m => {
@@ -997,6 +1075,7 @@ function updateDashboard() {
   document.getElementById('waterBar').style.width = Math.min(w / g.water * 100, 100) + '%';
 }
 
+// ─── MEALS RENDER ─────────────────────────────────────────────
 function renderMeals() {
   const container = document.getElementById('mealsContainer');
   container.innerHTML = MEALS.map(meal => {
@@ -1015,10 +1094,11 @@ function renderMeals() {
           <div class="macro-dot"><div class="macro-dot-val" style="color:var(--fat-color)">${Math.round(f.fat)}g</div><div class="macro-dot-label">FAT</div></div>
         </div>
         <button class="del-btn" onclick="removeFood('${meal}', ${i})">✕</button>
-      </div>`).join('');
+      </div>
+    `).join('');
     return `
       <div class="meal-section">
-        <div class="meal-header">
+        <div class="meal-header" onclick="">
           <div class="meal-title">${meal}</div>
           <div class="meal-cal-badge">${Math.round(mealCal)} kcal</div>
         </div>
@@ -1035,12 +1115,14 @@ function removeFood(meal, idx) {
   renderMeals();
 }
 
+// ─── WATER ────────────────────────────────────────────────────
 function adjustWater(delta) {
   today().water = Math.max(0, (today().water || 0) + delta);
   save();
   updateDashboard();
 }
 
+// ─── MODAL ────────────────────────────────────────────────────
 function openModal(meal) {
   activeMeal = meal;
   document.getElementById('modalTitle').textContent = `Add to ${meal}`;
@@ -1064,6 +1146,7 @@ function backToSearch() {
   document.getElementById('searchStep').style.display = 'block';
 }
 
+// ─── FOOD SEARCH (Open Food Facts API) ────────────────────────
 function debounceSearch(val) {
   clearTimeout(searchTimer);
   if (val.length < 2) {
@@ -1074,39 +1157,75 @@ function debounceSearch(val) {
   searchTimer = setTimeout(() => searchFood(val), 500);
 }
 
+const USDA_KEY = 'tIUvjGbkvPIJNSRdwQpJeDYZtRe3esxh7wkUy1Mn';
+
+function getNutrient(nutrients, id) {
+  const n = (nutrients || []).find(n => n.nutrientId === id);
+  return n ? n.value : 0;
+}
+
+function parseFoodItem(food) {
+  // Prefer branded food serving info
+  const servingSize = food.servingSize || 100;
+  const servingUnit = food.servingSizeUnit || 'g';
+  const servingDesc = `${servingSize}${servingUnit}`;
+  const scale = servingSize / 100;
+
+  const nutrients = food.foodNutrients || [];
+  // USDA nutrient IDs: 1008=energy(kcal), 1003=protein, 1005=carbs, 1004=fat
+  const cal = getNutrient(nutrients, 1008) * (food.servingSize ? scale : 1);
+  const pro = getNutrient(nutrients, 1003) * (food.servingSize ? scale : 1);
+  const carb = getNutrient(nutrients, 1005) * (food.servingSize ? scale : 1);
+  const fat = getNutrient(nutrients, 1004) * (food.servingSize ? scale : 1);
+
+  return {
+    name: food.description,
+    brand: food.brandOwner || food.brandName || 'USDA',
+    servingDesc,
+    perServing: { cal, pro, carb, fat }
+  };
+}
+
 async function searchFood(query) {
   document.getElementById('searchLoading').style.display = 'block';
   document.getElementById('searchResults').innerHTML = '';
   document.getElementById('searchEmpty').style.display = 'none';
+
   try {
-    const url = `https://world.openfoodfacts.org/cgi/search.pl?search_terms=${encodeURIComponent(query)}&search_simple=1&action=process&json=1&page_size=20&fields=product_name,brands,nutriments,serving_size,serving_quantity`;
+    const url = `https://api.nal.usda.gov/fdc/v1/foods/search?query=${encodeURIComponent(query)}&pageSize=25&api_key=${USDA_KEY}&dataType=Branded,SR%20Legacy,Foundation`;
     const res = await fetch(url);
     const data = await res.json();
     document.getElementById('searchLoading').style.display = 'none';
-    const products = (data.products || []).filter(p => {
-      const n = p.nutriments;
-      return p.product_name && n && (n['energy-kcal_serving'] || n['energy-kcal_100g']);
+
+    const foods = (data.foods || []).filter(f => {
+      const nutrients = f.foodNutrients || [];
+      const hasCal = nutrients.find(n => n.nutrientId === 1008 && n.value > 0);
+      return f.description && hasCal;
     });
-    if (products.length === 0) { document.getElementById('searchEmpty').style.display = 'block'; return; }
-    document.getElementById('searchResults').innerHTML = products.map((p, i) => {
-      const n = p.nutriments;
-      const hasServing = n['energy-kcal_serving'];
-      const cal = Math.round(hasServing ? n['energy-kcal_serving'] : n['energy-kcal_100g']);
-      const pro = (hasServing ? n['proteins_serving'] : n['proteins_100g']) || 0;
+
+    if (foods.length === 0) {
+      document.getElementById('searchEmpty').style.display = 'block';
+      return;
+    }
+
+    window._searchResults = foods;
+
+    document.getElementById('searchResults').innerHTML = foods.map((f, i) => {
+      const parsed = parseFoodItem(f);
       return `<div class="result-item" onclick="selectFood(${i})">
-        <div>
-          <div class="result-name">${p.product_name}</div>
-          <div class="result-brand">${p.brands || 'Generic'} · ${p.serving_size || '100g'}</div>
+        <div style="min-width:0;flex:1">
+          <div class="result-name">${parsed.name}</div>
+          <div class="result-brand">${parsed.brand} · ${parsed.servingDesc}</div>
         </div>
         <div class="result-macros">
           <div>
-            <div class="result-cal">${cal}</div>
-            <div class="result-macro-row" style="color:var(--protein-color)">${Math.round(pro)}g P</div>
+            <div class="result-cal">${Math.round(parsed.perServing.cal)}</div>
+            <div class="result-macro-row" style="color:var(--protein-color)">${Math.round(parsed.perServing.pro)}g P</div>
           </div>
         </div>
       </div>`;
     }).join('');
-    window._searchResults = products;
+
   } catch (e) {
     document.getElementById('searchLoading').style.display = 'none';
     document.getElementById('searchResults').innerHTML = `<div style="padding:24px;text-align:center;color:var(--muted);font-size:14px;">Search failed. Check your connection.</div>`;
@@ -1114,22 +1233,11 @@ async function searchFood(query) {
 }
 
 function selectFood(idx) {
-  const p = window._searchResults[idx];
-  const n = p.nutriments;
-  const hasServing = n['energy-kcal_serving'];
-  selectedFood = {
-    name: p.product_name,
-    brand: p.brands || 'Generic',
-    servingDesc: p.serving_size || '100g',
-    perServing: {
-      cal: hasServing ? n['energy-kcal_serving'] : n['energy-kcal_100g'],
-      pro: (hasServing ? n['proteins_serving'] : n['proteins_100g']) || 0,
-      carb: (hasServing ? n['carbohydrates_serving'] : n['carbohydrates_100g']) || 0,
-      fat: (hasServing ? n['fat_serving'] : n['fat_100g']) || 0,
-    }
-  };
-  document.getElementById('servingName').textContent = p.product_name;
-  document.getElementById('servingBrand').textContent = `${p.brands || 'Generic'} · ${p.serving_size || '100g'} per serving`;
+  const food = window._searchResults[idx];
+  selectedFood = parseFoodItem(food);
+
+  document.getElementById('servingName').textContent = selectedFood.name;
+  document.getElementById('servingBrand').textContent = `${selectedFood.brand} · ${selectedFood.servingDesc} per serving`;
   document.getElementById('servingUnit').textContent = 'serving(s)';
   document.getElementById('servingQty').value = 1;
   document.getElementById('searchStep').style.display = 'none';
@@ -1154,42 +1262,53 @@ function confirmAdd() {
   today().meals[activeMeal].push({
     name: selectedFood.name,
     servingDesc: `${qty} serving${qty !== 1 ? 's' : ''} · ${selectedFood.servingDesc}`,
-    cal: s.cal * qty, pro: s.pro * qty, carb: s.carb * qty, fat: s.fat * qty
+    cal: s.cal * qty,
+    pro: s.pro * qty,
+    carb: s.carb * qty,
+    fat: s.fat * qty
   });
   save();
   closeModal();
   renderMeals();
 }
 
+// ─── HISTORY ──────────────────────────────────────────────────
 function renderHistory() {
   const days = Object.keys(state.days).sort((a, b) => new Date(b) - new Date(a));
   const list = document.getElementById('historyList');
+
   if (days.length === 0) {
     list.innerHTML = `<div style="text-align:center;padding:40px;color:var(--muted);font-size:14px;">No history yet. Start logging today!</div>`;
     return;
   }
-  let totalCal = 0, totalPro = 0, count = 0, bestDiff = Infinity, bestDate = '—';
+
+  let totalCal = 0, totalPro = 0, count = 0;
+  let bestDiff = Infinity, bestDate = '—';
+
   days.forEach(d => {
     const dayData = state.days[d];
-    let cal = 0, pro = 0;
-    MEALS.forEach(m => (dayData.meals[m] || []).forEach(f => { cal += f.cal; pro += f.pro; }));
+    let cal = 0, pro = 0, carb = 0, fat = 0;
+    MEALS.forEach(m => (dayData.meals[m] || []).forEach(f => { cal += f.cal; pro += f.pro; carb += f.carb; fat += f.fat; }));
     if (cal > 0) {
       totalCal += cal; totalPro += pro; count++;
       const diff = Math.abs(cal - state.goals.cal);
       if (diff < bestDiff) { bestDiff = diff; bestDate = d; }
     }
   });
+
   document.getElementById('avgCal').textContent = count > 0 ? Math.round(totalCal / count) : '—';
   document.getElementById('avgPro').textContent = count > 0 ? Math.round(totalPro / count) + 'g' : '—';
   document.getElementById('daysLogged').textContent = count;
   document.getElementById('bestDay').textContent = bestDate !== '—' ? new Date(bestDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : '—';
+
   list.innerHTML = days.map(d => {
     const dayData = state.days[d];
     let cal = 0, pro = 0, carb = 0, fat = 0;
     MEALS.forEach(m => (dayData.meals[m] || []).forEach(f => { cal += f.cal; pro += f.pro; carb += f.carb; fat += f.fat; }));
+    const isToday = d === todayKey;
     return `<div class="history-item">
       <div>
-        <div class="history-date">${d === todayKey ? 'Today' : new Date(d).toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })}</div>
+        <div class="history-date">${isToday ? 'Today' : new Date(d).toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })}</div>
         <div style="font-size:12px;color:var(--muted);margin-top:3px;">
           <span style="color:var(--protein-color)">${Math.round(pro)}g P</span> · 
           <span style="color:var(--carb-color)">${Math.round(carb)}g C</span> · 
@@ -1202,6 +1321,7 @@ function renderHistory() {
   }).join('');
 }
 
+// ─── GOALS ────────────────────────────────────────────────────
 function loadGoals() {
   const g = state.goals;
   document.getElementById('goalCal').value = g.cal;
@@ -1225,49 +1345,54 @@ function saveGoals() {
   document.querySelectorAll('.nav-btn')[0].classList.add('active');
 }
 
+// Close modal on overlay click
 document.getElementById('modalOverlay').addEventListener('click', function(e) {
   if (e.target === this) closeModal();
 });
 
-// ─── BARCODE SCANNER (ZXing — works on Safari iOS) ───────────────────────────
-let zxingReader = null;
+// ─── BARCODE SCANNER ──────────────────────────────────────────
 let scanStream = null;
+let barcodeDetector = null;
+let scanInterval = null;
 
 async function openScanner() {
   const overlay = document.getElementById('barcodeOverlay');
   const status = document.getElementById('barcodeStatus');
 
+  if (!('BarcodeDetector' in window)) {
+    alert('Barcode scanning is not supported on this browser. Try Safari on iOS 16+ or Chrome on Android.');
+    return;
+  }
+
   try {
-    // Request camera access
+    barcodeDetector = new BarcodeDetector({ formats: ['ean_13', 'ean_8', 'upc_a', 'upc_e', 'code_128', 'code_39'] });
     scanStream = await navigator.mediaDevices.getUserMedia({
       video: { facingMode: 'environment', width: { ideal: 1280 }, height: { ideal: 720 } }
     });
-
     const video = document.getElementById('barcodeVideo');
     video.srcObject = scanStream;
     overlay.classList.add('visible');
     status.textContent = 'Point camera at barcode';
 
-    // Use ZXing to decode from video stream
-    zxingReader = new ZXing.BrowserMultiFormatReader();
-    zxingReader.decodeFromStream(scanStream, video, async (result, err) => {
-      if (result) {
-        const code = result.getText();
-        status.textContent = `Found: ${code} — looking up...`;
-        // Stop scanning once we have a result
-        zxingReader.reset();
-        await lookupBarcode(code);
-      }
-      // Ignore errors — they fire continuously until a barcode is found
-    });
-
+    scanInterval = setInterval(async () => {
+      if (video.readyState !== video.HAVE_ENOUGH_DATA) return;
+      try {
+        const barcodes = await barcodeDetector.detect(video);
+        if (barcodes.length > 0) {
+          const code = barcodes[0].rawValue;
+          status.textContent = `Found: ${code} — looking up...`;
+          clearInterval(scanInterval);
+          await lookupBarcode(code);
+        }
+      } catch (e) {}
+    }, 400);
   } catch (e) {
     alert('Could not access camera. Please allow camera access and try again.');
   }
 }
 
 function closeScanner() {
-  if (zxingReader) { zxingReader.reset(); zxingReader = null; }
+  clearInterval(scanInterval);
   if (scanStream) { scanStream.getTracks().forEach(t => t.stop()); scanStream = null; }
   document.getElementById('barcodeOverlay').classList.remove('visible');
   document.getElementById('barcodeVideo').srcObject = null;
@@ -1276,48 +1401,37 @@ function closeScanner() {
 async function lookupBarcode(barcode) {
   const status = document.getElementById('barcodeStatus');
   try {
-    const url = `https://world.openfoodfacts.org/api/v0/product/${barcode}.json`;
+    // USDA barcode search via gtinUpc
+    const url = `https://api.nal.usda.gov/fdc/v1/foods/search?query=${barcode}&api_key=${USDA_KEY}&dataType=Branded`;
     const res = await fetch(url);
     const data = await res.json();
-    if (data.status !== 1 || !data.product) {
+
+    const food = (data.foods || []).find(f => f.gtinUpc === barcode || f.gtinUpc === barcode.replace(/^0+/, ''));
+
+    if (!food) {
       status.textContent = 'Product not found. Try searching by name.';
-      setTimeout(() => closeScanner(), 2000);
+      setTimeout(() => { closeScanner(); }, 2000);
       return;
     }
+
     closeScanner();
-    const p = data.product;
-    const n = p.nutriments || {};
-    const hasServing = n['energy-kcal_serving'];
-    selectedFood = {
-      name: p.product_name || p.abbreviated_product_name || 'Unknown Product',
-      brand: p.brands || 'Generic',
-      servingDesc: p.serving_size || '100g',
-      perServing: {
-        cal: hasServing ? n['energy-kcal_serving'] : (n['energy-kcal_100g'] || 0),
-        pro: (hasServing ? n['proteins_serving'] : n['proteins_100g']) || 0,
-        carb: (hasServing ? n['carbohydrates_serving'] : n['carbohydrates_100g']) || 0,
-        fat: (hasServing ? n['fat_serving'] : n['fat_100g']) || 0,
-      }
-    };
+    selectedFood = parseFoodItem(food);
+
     document.getElementById('servingName').textContent = selectedFood.name;
     document.getElementById('servingBrand').textContent = `${selectedFood.brand} · ${selectedFood.servingDesc} per serving`;
     document.getElementById('servingQty').value = 1;
     document.getElementById('searchStep').style.display = 'none';
     document.getElementById('servingStep').classList.add('visible');
     updatePreview();
+
   } catch(e) {
     status.textContent = 'Lookup failed. Check connection.';
     setTimeout(() => { status.textContent = 'Point camera at barcode'; }, 2000);
   }
 }
 
-// INIT
+// ─── INIT ─────────────────────────────────────────────────────
 renderMeals();
 </script>
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/FUEL/sw.js');
-    }
-  </script>
 </body>
 </html>
