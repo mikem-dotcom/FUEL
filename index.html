@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -34,743 +35,746 @@
     overflow-x: hidden;
   }
 
-  /* HEADER */
-  header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px 28px;
-    border-bottom: 1px solid var(--border);
-    position: sticky;
-    top: 0;
-    background: rgba(13,13,15,0.95);
-    backdrop-filter: blur(8px);
-    z-index: 100;
-  }
-  .logo {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 28px;
-    font-weight: 900;
-    letter-spacing: 3px;
-    color: var(--green);
-  }
-  .logo span { color: var(--text); }
-  .date-display {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    color: var(--muted);
-    text-transform: uppercase;
-  }
+/* HEADER */
+header {
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 20px 28px;
+border-bottom: 1px solid var(–border);
+position: sticky;
+top: 0;
+background: rgba(13,13,15,0.95);
+backdrop-filter: blur(8px);
+z-index: 100;
+}
+.logo {
+font-family: ‘Barlow Condensed’, sans-serif;
+font-size: 28px;
+font-weight: 900;
+letter-spacing: 3px;
+color: var(–green);
+}
+.logo span { color: var(–text); }
+.date-display {
+font-family: ‘Barlow Condensed’, sans-serif;
+font-size: 14px;
+font-weight: 700;
+letter-spacing: 2px;
+color: var(–muted);
+text-transform: uppercase;
+}
 
-  /* NAV */
-  nav {
-    display: flex;
-    gap: 4px;
-    padding: 16px 28px;
-    border-bottom: 1px solid var(--border);
-    overflow-x: auto;
-  }
-  .nav-btn {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    padding: 8px 16px;
-    border-radius: 4px;
-    border: 1px solid var(--border);
-    background: transparent;
-    color: var(--muted);
-    cursor: pointer;
-    white-space: nowrap;
-    transition: all 0.15s;
-  }
-  .nav-btn:hover { color: var(--text); border-color: rgba(255,255,255,0.2); }
-  .nav-btn.active { background: var(--green); color: #0d0d0f; border-color: var(--green); }
+/* NAV */
+nav {
+display: flex;
+gap: 4px;
+padding: 16px 28px;
+border-bottom: 1px solid var(–border);
+overflow-x: auto;
+}
+.nav-btn {
+font-family: ‘Barlow Condensed’, sans-serif;
+font-size: 13px;
+font-weight: 700;
+letter-spacing: 1.5px;
+text-transform: uppercase;
+padding: 8px 16px;
+border-radius: 4px;
+border: 1px solid var(–border);
+background: transparent;
+color: var(–muted);
+cursor: pointer;
+white-space: nowrap;
+transition: all 0.15s;
+}
+.nav-btn:hover { color: var(–text); border-color: rgba(255,255,255,0.2); }
+.nav-btn.active { background: var(–green); color: #0d0d0f; border-color: var(–green); }
 
-  main { padding: 24px 28px; max-width: 900px; }
-  .view { display: none; }
-  .view.active { display: block; }
+main { padding: 24px 28px; max-width: 900px; }
+.view { display: none; }
+.view.active { display: block; }
 
-  /* MACRO RINGS */
-  .macro-overview {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-bottom: 24px;
-  }
-  .cal-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    grid-column: 1 / -1;
-  }
-  .cal-ring { position: relative; width: 80px; height: 80px; flex-shrink: 0; }
-  .cal-ring svg { transform: rotate(-90deg); }
-  .cal-ring-center {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  .cal-ring-num {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 18px;
-    font-weight: 800;
-    color: var(--accent);
-    line-height: 1;
-  }
-  .cal-ring-label { font-size: 9px; color: var(--muted); letter-spacing: 1px; }
-  .cal-info { flex: 1; }
-  .cal-main {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 42px;
-    font-weight: 900;
-    line-height: 1;
-    color: var(--accent);
-  }
-  .cal-sub { font-size: 13px; color: var(--muted); margin-top: 2px; }
-  .cal-remaining {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--green);
-    margin-top: 4px;
-  }
-  .cal-remaining.over { color: var(--red); }
+/* MACRO RINGS */
+.macro-overview {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 12px;
+margin-bottom: 24px;
+}
+.cal-card {
+background: var(–surface);
+border: 1px solid var(–border);
+border-radius: 14px;
+padding: 20px;
+display: flex;
+align-items: center;
+gap: 16px;
+grid-column: 1 / -1;
+}
+.cal-ring { position: relative; width: 80px; height: 80px; flex-shrink: 0; }
+.cal-ring svg { transform: rotate(-90deg); }
+.cal-ring-center {
+position: absolute;
+inset: 0;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+.cal-ring-num {
+font-family: ‘Barlow Condensed’, sans-serif;
+font-size: 18px;
+font-weight: 800;
+color: var(–accent);
+line-height: 1;
+}
+.cal-ring-label { font-size: 9px; color: var(–muted); letter-spacing: 1px; }
+.cal-info { flex: 1; }
+.cal-main {
+font-family: ‘Barlow Condensed’, sans-serif;
+font-size: 42px;
+font-weight: 900;
+line-height: 1;
+color: var(–accent);
+}
+.cal-sub { font-size: 13px; color: var(–muted); margin-top: 2px; }
+.cal-remaining {
+font-family: ‘Barlow Condensed’, sans-serif;
+font-size: 16px;
+font-weight: 700;
+color: var(–green);
+margin-top: 4px;
+}
+.cal-remaining.over { color: var(–red); }
 
-  .macro-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 16px;
-  }
-  .macro-card-label {
-    font-size: 11px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 8px;
-  }
-  .macro-card-val {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 28px;
-    font-weight: 800;
-    line-height: 1;
-    margin-bottom: 8px;
-  }
-  .macro-bar {
-    height: 4px;
-    background: var(--surface2);
-    border-radius: 2px;
-    overflow: hidden;
-  }
-  .macro-bar-fill {
-    height: 100%;
-    border-radius: 2px;
-    transition: width 0.4s ease;
-  }
-  .macro-card-sub { font-size: 11px; color: var(--muted); margin-top: 5px; }
+.macro-card {
+background: var(–surface);
+border: 1px solid var(–border);
+border-radius: 12px;
+padding: 16px;
+}
+.macro-card-label {
+font-size: 11px;
+letter-spacing: 1.5px;
+text-transform: uppercase;
+color: var(–muted);
+margin-bottom: 8px;
+}
+.macro-card-val {
+font-family: ‘Barlow Condensed’, sans-serif;
+font-size: 28px;
+font-weight: 800;
+line-height: 1;
+margin-bottom: 8px;
+}
+.macro-bar {
+height: 4px;
+background: var(–surface2);
+border-radius: 2px;
+overflow: hidden;
+}
+.macro-bar-fill {
+height: 100%;
+border-radius: 2px;
+transition: width 0.4s ease;
+}
+.macro-card-sub { font-size: 11px; color: var(–muted); margin-top: 5px; }
 
-  /* WATER */
-  .water-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 16px 20px;
-    margin-bottom: 24px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-  .water-icon {
-    font-size: 28px;
-    flex-shrink: 0;
-  }
-  .water-info { flex: 1; }
-  .water-label {
-    font-size: 11px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 4px;
-  }
-  .water-val {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 24px;
-    font-weight: 800;
-    color: var(--water-color);
-  }
-  .water-bar {
-    height: 4px;
-    background: var(--surface2);
-    border-radius: 2px;
-    overflow: hidden;
-    margin-top: 6px;
-  }
-  .water-bar-fill {
-    height: 100%;
-    background: var(--water-color);
-    border-radius: 2px;
-    transition: width 0.4s ease;
-  }
-  .water-btns { display: flex; gap: 6px; flex-shrink: 0; }
-  .water-btn {
-    background: rgba(58,255,140,0.1);
-    color: var(--water-color);
-    border: 1px solid rgba(58,255,140,0.3);
-    border-radius: 6px;
-    padding: 6px 12px;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.15s;
-  }
-  .water-btn:hover { background: rgba(58,255,140,0.2); }
-  .water-btn.minus {
-    background: rgba(255,255,255,0.05);
-    color: var(--muted);
-    border-color: var(--border);
-  }
+/* WATER */
+.water-card {
+background: var(–surface);
+border: 1px solid var(–border);
+border-radius: 12px;
+padding: 16px 20px;
+margin-bottom: 24px;
+display: flex;
+align-items: center;
+gap: 16px;
+}
+.water-icon {
+font-size: 28px;
+flex-shrink: 0;
+}
+.water-info { flex: 1; }
+.water-label {
+font-size: 11px;
+letter-spacing: 1.5px;
+text-transform: uppercase;
+color: var(–muted);
+margin-bottom: 4px;
+}
+.water-val {
+font-family: ‘Barlow Condensed’, sans-serif;
+font-size: 24px;
+font-weight: 800;
+color: var(–water-color);
+}
+.water-bar {
+height: 4px;
+background: var(–surface2);
+border-radius: 2px;
+overflow: hidden;
+margin-top: 6px;
+}
+.water-bar-fill {
+height: 100%;
+background: var(–water-color);
+border-radius: 2px;
+transition: width 0.4s ease;
+}
+.water-btns { display: flex; gap: 6px; flex-shrink: 0; }
+.water-btn {
+background: rgba(58,255,140,0.1);
+color: var(–water-color);
+border: 1px solid rgba(58,255,140,0.3);
+border-radius: 6px;
+padding: 6px 12px;
+font-family: ‘Barlow Condensed’, sans-serif;
+font-size: 13px;
+font-weight: 700;
+cursor: pointer;
+transition: all 0.15s;
+}
+.water-btn:hover { background: rgba(58,255,140,0.2); }
+.water-btn.minus {
+background: rgba(255,255,255,0.05);
+color: var(–muted);
+border-color: var(–border);
+}
 
-  /* SEARCH */
-  .search-wrap {
-    position: relative;
-    margin-bottom: 16px;
-  }
-  .search-input {
-    width: 100%;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 14px 48px 14px 16px;
-    color: var(--text);
-    font-size: 15px;
-    font-family: 'DM Sans', sans-serif;
-    outline: none;
-    transition: border-color 0.15s;
-  }
-  .search-input:focus { border-color: var(--green); }
-  .search-input::placeholder { color: var(--muted); }
-  .search-icon {
-    position: absolute;
-    right: 16px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--muted);
-    font-size: 18px;
-    pointer-events: none;
-  }
+/* SEARCH */
+.search-wrap {
+position: relative;
+margin-bottom: 16px;
+}
+.search-input {
+width: 100%;
+background: var(–surface);
+border: 1px solid var(–border);
+border-radius: 10px;
+padding: 14px 48px 14px 16px;
+color: var(–text);
+font-size: 15px;
+font-family: ‘DM Sans’, sans-serif;
+outline: none;
+transition: border-color 0.15s;
+}
+.search-input:focus { border-color: var(–green); }
+.search-input::placeholder { color: var(–muted); }
+.search-icon {
+position: absolute;
+right: 16px;
+top: 50%;
+transform: translateY(-50%);
+color: var(–muted);
+font-size: 18px;
+pointer-events: none;
+}
 
-  /* MEAL SECTION */
-  .section-label {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 10px;
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .meal-section { margin-bottom: 8px; }
-  .meal-header {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px 10px 0 0;
-    padding: 12px 16px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    cursor: pointer;
-  }
-  .meal-header:hover { background: var(--surface2); }
-  .meal-title {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    letter-spacing: 1px;
-  }
-  .meal-cal-badge {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--accent);
-  }
-  .meal-items {
-    border: 1px solid var(--border);
-    border-top: none;
-    border-radius: 0 0 10px 10px;
-    overflow: hidden;
-  }
-  .food-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--border);
-    transition: background 0.1s;
-  }
-  .food-item:last-child { border-bottom: none; }
-  .food-item:hover { background: var(--surface2); }
-  .food-name { flex: 1; font-size: 14px; font-weight: 500; }
-  .food-serving { font-size: 12px; color: var(--muted); margin-top: 2px; }
-  .food-macros {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    font-size: 12px;
-  }
-  .food-cal { font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 700; color: var(--accent); }
-  .macro-dot {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1px;
-  }
-  .macro-dot-val { font-size: 11px; font-weight: 500; }
-  .macro-dot-label { font-size: 9px; color: var(--muted); letter-spacing: 0.5px; }
-  .del-btn {
-    background: transparent;
-    border: none;
-    color: var(--muted);
-    cursor: pointer;
-    font-size: 16px;
-    padding: 4px;
-    border-radius: 4px;
-    transition: color 0.15s;
-    line-height: 1;
-  }
-  .del-btn:hover { color: var(--red); }
+/* MEAL SECTION */
+.section-label {
+font-family: ‘Barlow Condensed’, sans-serif;
+font-size: 11px;
+font-weight: 700;
+letter-spacing: 2.5px;
+text-transform: uppercase;
+color: var(–muted);
+margin-bottom: 10px;
+margin-top: 20px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+.meal-section { margin-bottom: 8px; }
+.meal-header {
+background: var(–surface);
+border: 1px solid var(–border);
+border-radius: 10px 10px 0 0;
+padding: 12px 16px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+cursor: pointer;
+}
+.meal-header:hover { background: var(–surface2); }
+.meal-title {
+font-family: ‘Barlow Condensed’, sans-serif;
+font-size: 16px;
+font-weight: 700;
+letter-spacing: 1px;
+}
+.meal-cal-badge {
+font-family: ‘Barlow Condensed’, sans-serif;
+font-size: 13px;
+font-weight: 700;
+color: var(–accent);
+}
+.meal-items {
+border: 1px solid var(–border);
+border-top: none;
+border-radius: 0 0 10px 10px;
+overflow: hidden;
+}
+.food-item {
+display: flex;
+align-items: center;
+gap: 12px;
+padding: 12px 16px;
+border-bottom: 1px solid var(–border);
+transition: background 0.1s;
+}
+.food-item:last-child { border-bottom: none; }
+.food-item:hover { background: var(–surface2); }
+.food-name { flex: 1; font-size: 14px; font-weight: 500; }
+.food-serving { font-size: 12px; color: var(–muted); margin-top: 2px; }
+.food-macros {
+display: flex;
+gap: 8px;
+align-items: center;
+font-size: 12px;
+}
+.food-cal { font-family: ‘Barlow Condensed’, sans-serif; font-size: 15px; font-weight: 700; color: var(–accent); }
+.macro-dot {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 1px;
+}
+.macro-dot-val { font-size: 11px; font-weight: 500; }
+.macro-dot-label { font-size: 9px; color: var(–muted); letter-spacing: 0.5px; }
+.del-btn {
+background: transparent;
+border: none;
+color: var(–muted);
+cursor: pointer;
+font-size: 16px;
+padding: 4px;
+border-radius: 4px;
+transition: color 0.15s;
+line-height: 1;
+}
+.del-btn:hover { color: var(–red); }
 
-  .add-food-btn {
-    width: 100%;
-    background: transparent;
-    border: 1px dashed rgba(255,255,255,0.12);
-    border-top: none;
-    border-radius: 0 0 10px 10px;
-    padding: 10px;
-    color: var(--muted);
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.15s;
-  }
-  .add-food-btn:hover { color: var(--green); border-color: rgba(58,255,140,0.3); }
+.add-food-btn {
+width: 100%;
+background: transparent;
+border: 1px dashed rgba(255,255,255,0.12);
+border-top: none;
+border-radius: 0 0 10px 10px;
+padding: 10px;
+color: var(–muted);
+font-family: ‘Barlow Condensed’, sans-serif;
+font-size: 12px;
+font-weight: 700;
+letter-spacing: 1.5px;
+text-transform: uppercase;
+cursor: pointer;
+transition: all 0.15s;
+}
+.add-food-btn:hover { color: var(–green); border-color: rgba(58,255,140,0.3); }
 
-  /* SEARCH RESULTS MODAL */
-  .modal-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(13,13,15,0.92);
-    z-index: 300;
-    align-items: flex-end;
-    justify-content: center;
-  }
-  .modal-overlay.visible { display: flex; }
-  .modal {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 20px 20px 0 0;
-    width: 100%;
-    max-width: 900px;
-    max-height: 85vh;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    animation: slideUp 0.25s ease;
-  }
-  @keyframes slideUp { from { transform: translateY(40px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-  .modal-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 16px;
-  }
-  .modal-title {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 18px;
-    font-weight: 800;
-    letter-spacing: 1px;
-  }
-  .modal-close {
-    background: var(--surface2);
-    border: none;
-    color: var(--muted);
-    width: 32px; height: 32px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 18px;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .modal-search {
-    width: 100%;
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 12px 14px;
-    color: var(--text);
-    font-size: 15px;
-    font-family: 'DM Sans', sans-serif;
-    outline: none;
-    margin-bottom: 12px;
-  }
-  .modal-search:focus { border-color: var(--green); }
-  .search-results { overflow-y: auto; flex: 1; }
-  .result-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 8px;
-    border-bottom: 1px solid var(--border);
-    cursor: pointer;
-    border-radius: 8px;
-    transition: background 0.1s;
-  }
-  .result-item:hover { background: var(--surface2); }
-  .result-name { font-size: 14px; font-weight: 500; margin-bottom: 3px; }
-  .result-brand { font-size: 12px; color: var(--muted); }
-  .result-macros {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    flex-shrink: 0;
-  }
-  .result-cal {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 18px;
-    font-weight: 800;
-    color: var(--accent);
-  }
-  .result-macro-row { font-size: 11px; color: var(--muted); text-align: right; }
+/* SEARCH RESULTS MODAL */
+.modal-overlay {
+display: none;
+position: fixed;
+inset: 0;
+background: rgba(13,13,15,0.92);
+z-index: 300;
+align-items: flex-end;
+justify-content: center;
+}
+.modal-overlay.visible { display: flex; }
+.modal {
+background: var(–surface);
+border: 1px solid var(–border);
+border-radius: 20px 20px 0 0;
+width: 100%;
+max-width: 900px;
+max-height: 85vh;
+display: flex;
+flex-direction: column;
+padding: 20px;
+animation: slideUp 0.25s ease;
+}
+@keyframes slideUp { from { transform: translateY(40px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+.modal-header {
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin-bottom: 16px;
+}
+.modal-title {
+font-family: ‘Barlow Condensed’, sans-serif;
+font-size: 18px;
+font-weight: 800;
+letter-spacing: 1px;
+}
+.modal-close {
+background: var(–surface2);
+border: none;
+color: var(–muted);
+width: 32px; height: 32px;
+border-radius: 50%;
+cursor: pointer;
+font-size: 18px;
+display: flex; align-items: center; justify-content: center;
+}
+.modal-search {
+width: 100%;
+background: var(–surface2);
+border: 1px solid var(–border);
+border-radius: 8px;
+padding: 12px 14px;
+color: var(–text);
+font-size: 15px;
+font-family: ‘DM Sans’, sans-serif;
+outline: none;
+margin-bottom: 12px;
+}
+.modal-search:focus { border-color: var(–green); }
+.search-results { overflow-y: auto; flex: 1; }
+.result-item {
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 12px 8px;
+border-bottom: 1px solid var(–border);
+cursor: pointer;
+border-radius: 8px;
+transition: background 0.1s;
+}
+.result-item:hover { background: var(–surface2); }
+.result-name { font-size: 14px; font-weight: 500; margin-bottom: 3px; }
+.result-brand { font-size: 12px; color: var(–muted); }
+.result-macros {
+display: flex;
+gap: 10px;
+align-items: center;
+flex-shrink: 0;
+}
+.result-cal {
+font-family: ‘Barlow Condensed’, sans-serif;
+font-size: 18px;
+font-weight: 800;
+color: var(–accent);
+}
+.result-macro-row { font-size: 11px; color: var(–muted); text-align: right; }
 
-  /* SERVING SIZE STEP */
-  .serving-step { display: none; }
-  .serving-step.visible { display: block; }
-  .serving-name {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 20px;
-    font-weight: 800;
-    margin-bottom: 4px;
-  }
-  .serving-brand { font-size: 13px; color: var(--muted); margin-bottom: 16px; }
-  .serving-controls {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 16px;
-  }
-  .serving-input {
-    width: 80px;
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 10px 12px;
-    color: var(--text);
-    font-size: 16px;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 700;
-    text-align: center;
-    outline: none;
-  }
-  .serving-input:focus { border-color: var(--green); }
-  .serving-unit { color: var(--muted); font-size: 14px; }
-  .serving-preview {
-    background: var(--surface2);
-    border-radius: 10px;
-    padding: 14px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
-    margin-bottom: 16px;
-  }
-  .preview-item { text-align: center; }
-  .preview-val {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 22px;
-    font-weight: 800;
-    line-height: 1;
-  }
-  .preview-label { font-size: 10px; color: var(--muted); letter-spacing: 1px; margin-top: 2px; }
-  .add-confirm-btn {
-    width: 100%;
-    background: var(--green);
-    color: #0d0d0f;
-    border: none;
-    border-radius: 10px;
-    padding: 14px;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 16px;
-    font-weight: 800;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: opacity 0.15s;
-  }
-  .add-confirm-btn:hover { opacity: 0.9; }
-  .back-btn {
-    background: transparent;
-    border: none;
-    color: var(--muted);
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    cursor: pointer;
-    margin-bottom: 12px;
-    padding: 0;
-  }
-  .back-btn:hover { color: var(--text); }
+/* SERVING SIZE STEP */
+.serving-step { display: none; }
+.serving-step.visible { display: block; }
+.serving-name {
+font-family: ‘Barlow Condensed’, sans-serif;
+font-size: 20px;
+font-weight: 800;
+margin-bottom: 4px;
+}
+.serving-brand { font-size: 13px; color: var(–muted); margin-bottom: 16px; }
+.serving-controls {
+display: flex;
+align-items: center;
+gap: 12px;
+margin-bottom: 16px;
+}
+.serving-input {
+width: 80px;
+background: var(–surface2);
+border: 1px solid var(–border);
+border-radius: 8px;
+padding: 10px 12px;
+color: var(–text);
+font-size: 16px;
+font-family: ‘Barlow Condensed’, sans-serif;
+font-weight: 700;
+text-align: center;
+outline: none;
+}
+.serving-input:focus { border-color: var(–green); }
+.serving-unit { color: var(–muted); font-size: 14px; }
+.serving-preview {
+background: var(–surface2);
+border-radius: 10px;
+padding: 14px;
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 8px;
+margin-bottom: 16px;
+}
+.preview-item { text-align: center; }
+.preview-val {
+font-family: ‘Barlow Condensed’, sans-serif;
+font-size: 22px;
+font-weight: 800;
+line-height: 1;
+}
+.preview-label { font-size: 10px; color: var(–muted); letter-spacing: 1px; margin-top: 2px; }
+.add-confirm-btn {
+width: 100%;
+background: var(–green);
+color: #0d0d0f;
+border: none;
+border-radius: 10px;
+padding: 14px;
+font-family: ‘Barlow Condensed’, sans-serif;
+font-size: 16px;
+font-weight: 800;
+letter-spacing: 1px;
+text-transform: uppercase;
+cursor: pointer;
+transition: opacity 0.15s;
+}
+.add-confirm-btn:hover { opacity: 0.9; }
+.back-btn {
+background: transparent;
+border: none;
+color: var(–muted);
+font-family: ‘Barlow Condensed’, sans-serif;
+font-size: 13px;
+font-weight: 700;
+letter-spacing: 1px;
+cursor: pointer;
+margin-bottom: 12px;
+padding: 0;
+}
+.back-btn:hover { color: var(–text); }
 
-  /* SEARCH LOADING */
-  .search-loading {
-    text-align: center;
-    padding: 32px;
-    color: var(--muted);
-    font-size: 14px;
-    display: none;
-  }
-  .search-empty {
-    text-align: center;
-    padding: 32px;
-    color: var(--muted);
-    font-size: 14px;
-    display: none;
-  }
+/* SEARCH LOADING */
+.search-loading {
+text-align: center;
+padding: 32px;
+color: var(–muted);
+font-size: 14px;
+display: none;
+}
+.search-empty {
+text-align: center;
+padding: 32px;
+color: var(–muted);
+font-size: 14px;
+display: none;
+}
 
-  /* STATS VIEW */
-  .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 12px;
-    margin-bottom: 24px;
-  }
-  .stats-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 16px;
-  }
-  .stats-label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
-  .stats-val { font-family: 'Barlow Condensed', sans-serif; font-size: 30px; font-weight: 800; line-height: 1; }
-  .stats-sub { font-size: 12px; color: var(--muted); margin-top: 4px; }
+/* STATS VIEW */
+.stats-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+gap: 12px;
+margin-bottom: 24px;
+}
+.stats-card {
+background: var(–surface);
+border: 1px solid var(–border);
+border-radius: 10px;
+padding: 16px;
+}
+.stats-label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(–muted); margin-bottom: 8px; }
+.stats-val { font-family: ‘Barlow Condensed’, sans-serif; font-size: 30px; font-weight: 800; line-height: 1; }
+.stats-sub { font-size: 12px; color: var(–muted); margin-top: 4px; }
 
-  /* HISTORY */
-  .history-item {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 14px 16px;
-    margin-bottom: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .history-date { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 1px; }
-  .history-macros { display: flex; gap: 12px; font-size: 13px; }
-  .history-cal { font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 800; color: var(--accent); }
+/* HISTORY */
+.history-item {
+background: var(–surface);
+border: 1px solid var(–border);
+border-radius: 10px;
+padding: 14px 16px;
+margin-bottom: 8px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+.history-date { font-family: ‘Barlow Condensed’, sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 1px; }
+.history-macros { display: flex; gap: 12px; font-size: 13px; }
+.history-cal { font-family: ‘Barlow Condensed’, sans-serif; font-size: 20px; font-weight: 800; color: var(–accent); }
 
-  /* GOALS VIEW */
-  .goal-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 12px;
-  }
-  .goal-label { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
-  .goal-row { display: flex; align-items: center; gap: 12px; }
-  .goal-input {
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 10px 14px;
-    color: var(--text);
-    font-size: 16px;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 700;
-    outline: none;
-    width: 110px;
-  }
-  .goal-input:focus { border-color: var(--green); }
-  .goal-unit { color: var(--muted); font-size: 14px; }
-  .save-goals-btn {
-    width: 100%;
-    background: var(--green);
-    color: #0d0d0f;
-    border: none;
-    border-radius: 10px;
-    padding: 14px;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 15px;
-    font-weight: 800;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    cursor: pointer;
-    margin-top: 8px;
-  }
-  .save-goals-btn:hover { opacity: 0.9; }
-  .goal-hint {
-    font-size: 12px;
-    color: var(--muted);
-    margin-top: 6px;
-    line-height: 1.5;
-  }
+/* GOALS VIEW */
+.goal-card {
+background: var(–surface);
+border: 1px solid var(–border);
+border-radius: 12px;
+padding: 20px;
+margin-bottom: 12px;
+}
+.goal-label { font-size: 13px; color: var(–muted); margin-bottom: 8px; }
+.goal-row { display: flex; align-items: center; gap: 12px; }
+.goal-input {
+background: var(–surface2);
+border: 1px solid var(–border);
+border-radius: 8px;
+padding: 10px 14px;
+color: var(–text);
+font-size: 16px;
+font-family: ‘Barlow Condensed’, sans-serif;
+font-weight: 700;
+outline: none;
+width: 110px;
+}
+.goal-input:focus { border-color: var(–green); }
+.goal-unit { color: var(–muted); font-size: 14px; }
+.save-goals-btn {
+width: 100%;
+background: var(–green);
+color: #0d0d0f;
+border: none;
+border-radius: 10px;
+padding: 14px;
+font-family: ‘Barlow Condensed’, sans-serif;
+font-size: 15px;
+font-weight: 800;
+letter-spacing: 1px;
+text-transform: uppercase;
+cursor: pointer;
+margin-top: 8px;
+}
+.save-goals-btn:hover { opacity: 0.9; }
+.goal-hint {
+font-size: 12px;
+color: var(–muted);
+margin-top: 6px;
+line-height: 1.5;
+}
 
-  /* BARCODE SCANNER */
-  .scan-btn {
-    width: 100%;
-    background: rgba(58,255,140,0.08);
-    border: 1px solid rgba(58,255,140,0.25);
-    border-radius: 8px;
-    padding: 12px;
-    color: var(--green);
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    cursor: pointer;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    transition: all 0.15s;
-  }
-  .scan-btn:hover { background: rgba(58,255,140,0.15); }
-  .scan-btn svg { width: 18px; height: 18px; }
-  .scan-divider {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
-    color: var(--muted);
-    font-size: 11px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-  .scan-divider::before, .scan-divider::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--border);
-  }
-  .barcode-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: #000;
-    z-index: 400;
-    flex-direction: column;
-  }
-  .barcode-overlay.visible { display: flex; }
-  .barcode-video {
-    width: 100%;
-    flex: 1;
-    object-fit: cover;
-  }
-  .barcode-ui {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    pointer-events: none;
-  }
-  .barcode-frame {
-    width: 260px;
-    height: 160px;
-    border: 2px solid var(--green);
-    border-radius: 12px;
-    position: relative;
-    box-shadow: 0 0 0 9999px rgba(0,0,0,0.55);
-  }
-  .barcode-frame::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 8px; right: 8px;
-    height: 2px;
-    background: var(--green);
-    opacity: 0.7;
-    animation: scanLine 1.8s ease-in-out infinite;
-  }
-  @keyframes scanLine {
-    0%, 100% { top: 20%; }
-    50% { top: 80%; }
-  }
-  .barcode-hint {
-    margin-top: 20px;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    color: rgba(255,255,255,0.7);
-    text-transform: uppercase;
-  }
-  .barcode-close-btn {
-    position: absolute;
-    bottom: 48px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(255,255,255,0.12);
-    border: 1px solid rgba(255,255,255,0.2);
-    color: #fff;
-    border-radius: 8px;
-    padding: 12px 32px;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    cursor: pointer;
-    pointer-events: all;
-  }
-  .barcode-status {
-    position: absolute;
-    top: 48px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(13,13,15,0.85);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 10px 20px;
-    font-size: 13px;
-    color: var(--muted);
-    white-space: nowrap;
-  }
+/* BARCODE SCANNER */
+.scan-btn {
+width: 100%;
+background: rgba(58,255,140,0.08);
+border: 1px solid rgba(58,255,140,0.25);
+border-radius: 8px;
+padding: 12px;
+color: var(–green);
+font-family: ‘Barlow Condensed’, sans-serif;
+font-size: 14px;
+font-weight: 700;
+letter-spacing: 1.5px;
+text-transform: uppercase;
+cursor: pointer;
+margin-bottom: 10px;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 8px;
+transition: all 0.15s;
+}
+.scan-btn:hover { background: rgba(58,255,140,0.15); }
+.scan-btn svg { width: 18px; height: 18px; }
+.scan-divider {
+display: flex;
+align-items: center;
+gap: 10px;
+margin-bottom: 10px;
+color: var(–muted);
+font-size: 11px;
+letter-spacing: 1px;
+text-transform: uppercase;
+}
+.scan-divider::before, .scan-divider::after {
+content: ‘’;
+flex: 1;
+height: 1px;
+background: var(–border);
+}
+.barcode-overlay {
+display: none;
+position: fixed;
+inset: 0;
+background: #000;
+z-index: 400;
+flex-direction: column;
+}
+.barcode-overlay.visible { display: flex; }
+.barcode-video {
+width: 100%;
+flex: 1;
+object-fit: cover;
+}
+.barcode-ui {
+position: absolute;
+inset: 0;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+pointer-events: none;
+}
+.barcode-frame {
+width: 260px;
+height: 160px;
+border: 2px solid var(–green);
+border-radius: 12px;
+position: relative;
+box-shadow: 0 0 0 9999px rgba(0,0,0,0.55);
+}
+.barcode-frame::before {
+content: ‘’;
+position: absolute;
+top: 50%;
+left: 8px; right: 8px;
+height: 2px;
+background: var(–green);
+opacity: 0.7;
+animation: scanLine 1.8s ease-in-out infinite;
+}
+@keyframes scanLine {
+0%, 100% { top: 20%; }
+50% { top: 80%; }
+}
+.barcode-hint {
+margin-top: 20px;
+font-family: ‘Barlow Condensed’, sans-serif;
+font-size: 14px;
+font-weight: 700;
+letter-spacing: 2px;
+color: rgba(255,255,255,0.7);
+text-transform: uppercase;
+}
+.barcode-close-btn {
+position: absolute;
+bottom: 48px;
+left: 50%;
+transform: translateX(-50%);
+background: rgba(255,255,255,0.12);
+border: 1px solid rgba(255,255,255,0.2);
+color: #fff;
+border-radius: 8px;
+padding: 12px 32px;
+font-family: ‘Barlow Condensed’, sans-serif;
+font-size: 14px;
+font-weight: 700;
+letter-spacing: 1.5px;
+text-transform: uppercase;
+cursor: pointer;
+pointer-events: all;
+}
+.barcode-status {
+position: absolute;
+top: 48px;
+left: 50%;
+transform: translateX(-50%);
+background: rgba(13,13,15,0.85);
+border: 1px solid var(–border);
+border-radius: 8px;
+padding: 10px 20px;
+font-size: 13px;
+color: var(–muted);
+white-space: nowrap;
+}
 
-  @media (max-width: 600px) {
-    main { padding: 16px; }
-    nav { padding: 12px 16px; }
-    header { padding: 14px 16px; }
-    .macro-overview { grid-template-columns: 1fr 1fr; }
-    .cal-main { font-size: 32px; }
-  }
+@media (max-width: 600px) {
+main { padding: 16px; }
+nav { padding: 12px 16px; }
+header { padding: 14px 16px; }
+.macro-overview { grid-template-columns: 1fr 1fr; }
+.cal-main { font-size: 32px; }
+}
 </style>
+
 </head>
 <body>
 
 <!-- FOOD SEARCH MODAL -->
+
 <!-- BARCODE SCANNER OVERLAY -->
+
 <div class="barcode-overlay" id="barcodeOverlay">
   <video class="barcode-video" id="barcodeVideo" playsinline autoplay muted></video>
   <div class="barcode-ui">
@@ -788,53 +792,56 @@
       <button class="modal-close" onclick="closeModal()">✕</button>
     </div>
 
-    <!-- Search Step -->
-    <div id="searchStep">
-      <button class="scan-btn" onclick="openScanner()">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M3 5h2M3 5v2M21 5h-2M21 5v2M3 19h2M3 19v-2M21 19h-2M21 19v-2"/>
-          <line x1="7" y1="8" x2="7" y2="16"/><line x1="10" y1="8" x2="10" y2="16"/>
-          <line x1="13" y1="8" x2="13" y2="16"/><line x1="16" y1="8" x2="16" y2="16"/>
-          <line x1="6" y1="8" x2="17" y2="8"/><line x1="6" y1="16" x2="17" y2="16"/>
-        </svg>
-        Scan Barcode
-      </button>
-      <div class="scan-divider">or search by name</div>
-      <input class="modal-search" id="modalSearchInput" placeholder="Search foods... (e.g. chicken breast, banana)" oninput="debounceSearch(this.value)">
-      <div class="search-loading" id="searchLoading">Searching...</div>
-      <div class="search-empty" id="searchEmpty">No results found. Try a different term.</div>
-      <div class="search-results" id="searchResults"></div>
-    </div>
+```
+<!-- Search Step -->
+<div id="searchStep">
+  <button class="scan-btn" onclick="openScanner()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 5h2M3 5v2M21 5h-2M21 5v2M3 19h2M3 19v-2M21 19h-2M21 19v-2"/>
+      <line x1="7" y1="8" x2="7" y2="16"/><line x1="10" y1="8" x2="10" y2="16"/>
+      <line x1="13" y1="8" x2="13" y2="16"/><line x1="16" y1="8" x2="16" y2="16"/>
+      <line x1="6" y1="8" x2="17" y2="8"/><line x1="6" y1="16" x2="17" y2="16"/>
+    </svg>
+    Scan Barcode
+  </button>
+  <div class="scan-divider">or search by name</div>
+  <input class="modal-search" id="modalSearchInput" placeholder="Search foods... (e.g. chicken breast, banana)" oninput="debounceSearch(this.value)">
+  <div class="search-loading" id="searchLoading">Searching...</div>
+  <div class="search-empty" id="searchEmpty">No results found. Try a different term.</div>
+  <div class="search-results" id="searchResults"></div>
+</div>
 
-    <!-- Serving Step -->
-    <div class="serving-step" id="servingStep">
-      <button class="back-btn" onclick="backToSearch()">← Back to search</button>
-      <div class="serving-name" id="servingName"></div>
-      <div class="serving-brand" id="servingBrand"></div>
-      <div class="serving-controls">
-        <input class="serving-input" type="number" id="servingQty" value="1" min="0.25" step="0.25" oninput="updatePreview()">
-        <span class="serving-unit" id="servingUnit">serving</span>
-      </div>
-      <div class="serving-preview">
-        <div class="preview-item">
-          <div class="preview-val" id="prevCal" style="color:var(--accent)">0</div>
-          <div class="preview-label">CAL</div>
-        </div>
-        <div class="preview-item">
-          <div class="preview-val" id="prevPro" style="color:var(--protein-color)">0g</div>
-          <div class="preview-label">PROTEIN</div>
-        </div>
-        <div class="preview-item">
-          <div class="preview-val" id="prevCarb" style="color:var(--carb-color)">0g</div>
-          <div class="preview-label">CARBS</div>
-        </div>
-        <div class="preview-item">
-          <div class="preview-val" id="prevFat" style="color:var(--fat-color)">0g</div>
-          <div class="preview-label">FAT</div>
-        </div>
-      </div>
-      <button class="add-confirm-btn" onclick="confirmAdd()">Add to <span id="mealLabel">Breakfast</span></button>
+<!-- Serving Step -->
+<div class="serving-step" id="servingStep">
+  <button class="back-btn" onclick="backToSearch()">← Back to search</button>
+  <div class="serving-name" id="servingName"></div>
+  <div class="serving-brand" id="servingBrand"></div>
+  <div class="serving-controls">
+    <input class="serving-input" type="number" id="servingQty" value="1" min="0.25" step="0.25" oninput="updatePreview()">
+    <span class="serving-unit" id="servingUnit">serving</span>
+  </div>
+  <div class="serving-preview">
+    <div class="preview-item">
+      <div class="preview-val" id="prevCal" style="color:var(--accent)">0</div>
+      <div class="preview-label">CAL</div>
     </div>
+    <div class="preview-item">
+      <div class="preview-val" id="prevPro" style="color:var(--protein-color)">0g</div>
+      <div class="preview-label">PROTEIN</div>
+    </div>
+    <div class="preview-item">
+      <div class="preview-val" id="prevCarb" style="color:var(--carb-color)">0g</div>
+      <div class="preview-label">CARBS</div>
+    </div>
+    <div class="preview-item">
+      <div class="preview-val" id="prevFat" style="color:var(--fat-color)">0g</div>
+      <div class="preview-label">FAT</div>
+    </div>
+  </div>
+  <button class="add-confirm-btn" onclick="confirmAdd()">Add to <span id="mealLabel">Breakfast</span></button>
+</div>
+```
+
   </div>
 </div>
 
@@ -852,147 +859,158 @@
 <main>
 
   <!-- TODAY VIEW -->
+
   <div class="view active" id="view-today">
 
-    <!-- Calorie Ring + Macros -->
-    <div class="macro-overview">
-      <div class="cal-card">
-        <div class="cal-ring">
-          <svg width="80" height="80" viewBox="0 0 80 80">
-            <circle cx="40" cy="40" r="34" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="6"/>
-            <circle id="calArc" cx="40" cy="40" r="34" fill="none" stroke="#e8ff47" stroke-width="6"
-              stroke-linecap="round" stroke-dasharray="214" stroke-dashoffset="214"/>
-          </svg>
-          <div class="cal-ring-center">
-            <div class="cal-ring-num" id="calPct">0%</div>
-          </div>
-        </div>
-        <div class="cal-info">
-          <div style="font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:2px;">Calories Today</div>
-          <div class="cal-main"><span id="calConsumed">0</span> <span style="font-size:20px;color:var(--muted);font-weight:400;">/ <span id="calGoalDisplay">2000</span></span></div>
-          <div class="cal-remaining" id="calRemaining">2000 remaining</div>
-        </div>
-      </div>
-
-      <div class="macro-card">
-        <div class="macro-card-label">Protein</div>
-        <div class="macro-card-val" style="color:var(--protein-color)"><span id="proConsumed">0</span>g</div>
-        <div class="macro-bar"><div class="macro-bar-fill" id="proBar" style="background:var(--protein-color);width:0%"></div></div>
-        <div class="macro-card-sub">Goal: <span id="proGoalDisplay">150</span>g</div>
-      </div>
-
-      <div class="macro-card">
-        <div class="macro-card-label">Carbs</div>
-        <div class="macro-card-val" style="color:var(--carb-color)"><span id="carbConsumed">0</span>g</div>
-        <div class="macro-bar"><div class="macro-bar-fill" id="carbBar" style="background:var(--carb-color);width:0%"></div></div>
-        <div class="macro-card-sub">Goal: <span id="carbGoalDisplay">200</span>g</div>
-      </div>
-
-      <div class="macro-card">
-        <div class="macro-card-label">Fat</div>
-        <div class="macro-card-val" style="color:var(--fat-color)"><span id="fatConsumed">0</span>g</div>
-        <div class="macro-bar"><div class="macro-bar-fill" id="fatBar" style="background:var(--fat-color);width:0%"></div></div>
-        <div class="macro-card-sub">Goal: <span id="fatGoalDisplay">65</span>g</div>
+```
+<!-- Calorie Ring + Macros -->
+<div class="macro-overview">
+  <div class="cal-card">
+    <div class="cal-ring">
+      <svg width="80" height="80" viewBox="0 0 80 80">
+        <circle cx="40" cy="40" r="34" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="6"/>
+        <circle id="calArc" cx="40" cy="40" r="34" fill="none" stroke="#e8ff47" stroke-width="6"
+          stroke-linecap="round" stroke-dasharray="214" stroke-dashoffset="214"/>
+      </svg>
+      <div class="cal-ring-center">
+        <div class="cal-ring-num" id="calPct">0%</div>
       </div>
     </div>
-
-    <!-- Water -->
-    <div class="water-card">
-      <div class="water-icon">💧</div>
-      <div class="water-info">
-        <div class="water-label">Water Intake</div>
-        <div class="water-val"><span id="waterConsumed">0</span> / <span id="waterGoalDisplay">8</span> glasses</div>
-        <div class="water-bar"><div class="water-bar-fill" id="waterBar" style="width:0%"></div></div>
-      </div>
-      <div class="water-btns">
-        <button class="water-btn minus" onclick="adjustWater(-1)">−</button>
-        <button class="water-btn" onclick="adjustWater(1)">+ Glass</button>
-      </div>
+    <div class="cal-info">
+      <div style="font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:2px;">Calories Today</div>
+      <div class="cal-main"><span id="calConsumed">0</span> <span style="font-size:20px;color:var(--muted);font-weight:400;">/ <span id="calGoalDisplay">2000</span></span></div>
+      <div class="cal-remaining" id="calRemaining">2000 remaining</div>
     </div>
+  </div>
 
-    <!-- Meals -->
-    <div class="section-label">Meals</div>
-    <div id="mealsContainer"></div>
+  <div class="macro-card">
+    <div class="macro-card-label">Protein</div>
+    <div class="macro-card-val" style="color:var(--protein-color)"><span id="proConsumed">0</span>g</div>
+    <div class="macro-bar"><div class="macro-bar-fill" id="proBar" style="background:var(--protein-color);width:0%"></div></div>
+    <div class="macro-card-sub">Goal: <span id="proGoalDisplay">150</span>g</div>
+  </div>
+
+  <div class="macro-card">
+    <div class="macro-card-label">Carbs</div>
+    <div class="macro-card-val" style="color:var(--carb-color)"><span id="carbConsumed">0</span>g</div>
+    <div class="macro-bar"><div class="macro-bar-fill" id="carbBar" style="background:var(--carb-color);width:0%"></div></div>
+    <div class="macro-card-sub">Goal: <span id="carbGoalDisplay">200</span>g</div>
+  </div>
+
+  <div class="macro-card">
+    <div class="macro-card-label">Fat</div>
+    <div class="macro-card-val" style="color:var(--fat-color)"><span id="fatConsumed">0</span>g</div>
+    <div class="macro-bar"><div class="macro-bar-fill" id="fatBar" style="background:var(--fat-color);width:0%"></div></div>
+    <div class="macro-card-sub">Goal: <span id="fatGoalDisplay">65</span>g</div>
+  </div>
+</div>
+
+<!-- Water -->
+<div class="water-card">
+  <div class="water-icon">💧</div>
+  <div class="water-info">
+    <div class="water-label">Water Intake</div>
+    <div class="water-val"><span id="waterConsumed">0</span> / <span id="waterGoalDisplay">8</span> glasses</div>
+    <div class="water-bar"><div class="water-bar-fill" id="waterBar" style="width:0%"></div></div>
+  </div>
+  <div class="water-btns">
+    <button class="water-btn minus" onclick="adjustWater(-1)">−</button>
+    <button class="water-btn" onclick="adjustWater(1)">+ Glass</button>
+  </div>
+</div>
+
+<!-- Meals -->
+<div class="section-label">Meals</div>
+<div id="mealsContainer"></div>
+```
 
   </div>
 
   <!-- HISTORY VIEW -->
+
   <div class="view" id="view-history">
     <div style="font-family:'Barlow Condensed',sans-serif;font-size:42px;font-weight:900;margin-bottom:4px;">HISTORY</div>
     <div style="font-size:13px;color:var(--muted);margin-bottom:24px;">Your nutrition log over time</div>
 
-    <div class="stats-grid">
-      <div class="stats-card">
-        <div class="stats-label">Avg Calories</div>
-        <div class="stats-val" id="avgCal" style="color:var(--accent)">—</div>
-        <div class="stats-sub">per day</div>
-      </div>
-      <div class="stats-card">
-        <div class="stats-label">Avg Protein</div>
-        <div class="stats-val" id="avgPro" style="color:var(--protein-color)">—</div>
-        <div class="stats-sub">grams/day</div>
-      </div>
-      <div class="stats-card">
-        <div class="stats-label">Days Logged</div>
-        <div class="stats-val" id="daysLogged" style="color:var(--green)">0</div>
-        <div class="stats-sub">total days</div>
-      </div>
-      <div class="stats-card">
-        <div class="stats-label">Best Day</div>
-        <div class="stats-val" id="bestDay" style="color:var(--purple)">—</div>
-        <div class="stats-sub">closest to goal</div>
-      </div>
-    </div>
+```
+<div class="stats-grid">
+  <div class="stats-card">
+    <div class="stats-label">Avg Calories</div>
+    <div class="stats-val" id="avgCal" style="color:var(--accent)">—</div>
+    <div class="stats-sub">per day</div>
+  </div>
+  <div class="stats-card">
+    <div class="stats-label">Avg Protein</div>
+    <div class="stats-val" id="avgPro" style="color:var(--protein-color)">—</div>
+    <div class="stats-sub">grams/day</div>
+  </div>
+  <div class="stats-card">
+    <div class="stats-label">Days Logged</div>
+    <div class="stats-val" id="daysLogged" style="color:var(--green)">0</div>
+    <div class="stats-sub">total days</div>
+  </div>
+  <div class="stats-card">
+    <div class="stats-label">Best Day</div>
+    <div class="stats-val" id="bestDay" style="color:var(--purple)">—</div>
+    <div class="stats-sub">closest to goal</div>
+  </div>
+</div>
 
-    <div class="section-label" style="margin-top:0">Daily Log</div>
-    <div id="historyList"></div>
+<div class="section-label" style="margin-top:0">Daily Log</div>
+<div id="historyList"></div>
+```
+
   </div>
 
   <!-- GOALS VIEW -->
+
   <div class="view" id="view-goals">
     <div style="font-family:'Barlow Condensed',sans-serif;font-size:42px;font-weight:900;margin-bottom:4px;">GOALS</div>
     <div style="font-size:13px;color:var(--muted);margin-bottom:24px;">Set your daily nutrition targets</div>
 
-    <div class="goal-card">
-      <div class="goal-label">Daily Calorie Target</div>
-      <div class="goal-row">
-        <input class="goal-input" type="number" id="goalCal" value="2000">
-        <span class="goal-unit">kcal</span>
-      </div>
-      <div class="goal-hint">For losing ~1 lb/week at your activity level, try 1,800–2,000 kcal.</div>
-    </div>
-    <div class="goal-card">
-      <div class="goal-label">Protein Target</div>
-      <div class="goal-row">
-        <input class="goal-input" type="number" id="goalPro" value="150">
-        <span class="goal-unit">g</span>
-      </div>
-      <div class="goal-hint">0.7–1g per lb of bodyweight helps preserve muscle while losing fat. At 208 lb, aim for 150–180g.</div>
-    </div>
-    <div class="goal-card">
-      <div class="goal-label">Carbohydrate Target</div>
-      <div class="goal-row">
-        <input class="goal-input" type="number" id="goalCarb" value="200">
-        <span class="goal-unit">g</span>
-      </div>
-    </div>
-    <div class="goal-card">
-      <div class="goal-label">Fat Target</div>
-      <div class="goal-row">
-        <input class="goal-input" type="number" id="goalFat" value="65">
-        <span class="goal-unit">g</span>
-      </div>
-    </div>
-    <div class="goal-card">
-      <div class="goal-label">Water Goal</div>
-      <div class="goal-row">
-        <input class="goal-input" type="number" id="goalWater" value="8">
-        <span class="goal-unit">glasses</span>
-      </div>
-      <div class="goal-hint">8 glasses (64 oz) is the standard target. Aim for more on workout days.</div>
-    </div>
+```
+<div class="goal-card">
+  <div class="goal-label">Daily Calorie Target</div>
+  <div class="goal-row">
+    <input class="goal-input" type="number" id="goalCal" value="2000">
+    <span class="goal-unit">kcal</span>
+  </div>
+  <div class="goal-hint">For losing ~1 lb/week at your activity level, try 1,800–2,000 kcal.</div>
+</div>
+<div class="goal-card">
+  <div class="goal-label">Protein Target</div>
+  <div class="goal-row">
+    <input class="goal-input" type="number" id="goalPro" value="150">
+    <span class="goal-unit">g</span>
+  </div>
+  <div class="goal-hint">0.7–1g per lb of bodyweight helps preserve muscle while losing fat. At 208 lb, aim for 150–180g.</div>
+</div>
+<div class="goal-card">
+  <div class="goal-label">Carbohydrate Target</div>
+  <div class="goal-row">
+    <input class="goal-input" type="number" id="goalCarb" value="200">
+    <span class="goal-unit">g</span>
+  </div>
+</div>
+<div class="goal-card">
+  <div class="goal-label">Fat Target</div>
+  <div class="goal-row">
+    <input class="goal-input" type="number" id="goalFat" value="65">
+    <span class="goal-unit">g</span>
+  </div>
+</div>
+<div class="goal-card">
+  <div class="goal-label">Water Goal</div>
+  <div class="goal-row">
+    <input class="goal-input" type="number" id="goalWater" value="8">
+    <span class="goal-unit">glasses</span>
+  </div>
+  <div class="goal-hint">8 glasses (64 oz) is the standard target. Aim for more on workout days.</div>
+</div>
 
-    <button class="save-goals-btn" onclick="saveGoals()">Save Goals</button>
+<button class="save-goals-btn" onclick="saveGoals()">Save Goals</button>
+```
+
   </div>
 
 </main>
@@ -1401,28 +1419,55 @@ function closeScanner() {
 async function lookupBarcode(barcode) {
   const status = document.getElementById('barcodeStatus');
   try {
-    // USDA barcode search via gtinUpc
-    const url = `https://api.nal.usda.gov/fdc/v1/foods/search?query=${barcode}&api_key=${USDA_KEY}&dataType=Branded`;
-    const res = await fetch(url);
-    const data = await res.json();
+    // 1. Try USDA direct UPC endpoint first
+    const usdaUrl = `https://api.nal.usda.gov/fdc/v1/foods/search?query=${barcode}&api_key=${USDA_KEY}&dataType=Branded&pageSize=5`;
+    const usdaRes = await fetch(usdaUrl);
+    const usdaData = await usdaRes.json();
 
-    const food = (data.foods || []).find(f => f.gtinUpc === barcode || f.gtinUpc === barcode.replace(/^0+/, ''));
+    // Match barcode exactly, also try stripping leading zeros
+    const stripped = barcode.replace(/^0+/, '');
+    let food = (usdaData.foods || []).find(f =>
+      f.gtinUpc === barcode ||
+      f.gtinUpc === stripped ||
+      (f.gtinUpc && f.gtinUpc.replace(/^0+/, '') === stripped)
+    );
 
-    if (!food) {
-      status.textContent = 'Product not found. Try searching by name.';
-      setTimeout(() => { closeScanner(); }, 2000);
+    if (food) {
+      closeScanner();
+      selectedFood = parseFoodItem(food);
+      showServingStep();
       return;
     }
 
-    closeScanner();
-    selectedFood = parseFoodItem(food);
+    // 2. Fall back to Open Food Facts
+    status.textContent = 'Checking backup database...';
+    const offUrl = `https://world.openfoodfacts.org/api/v0/product/${barcode}.json`;
+    const offRes = await fetch(offUrl);
+    const offData = await offRes.json();
 
-    document.getElementById('servingName').textContent = selectedFood.name;
-    document.getElementById('servingBrand').textContent = `${selectedFood.brand} · ${selectedFood.servingDesc} per serving`;
-    document.getElementById('servingQty').value = 1;
-    document.getElementById('searchStep').style.display = 'none';
-    document.getElementById('servingStep').classList.add('visible');
-    updatePreview();
+    if (offData.status === 1 && offData.product) {
+      closeScanner();
+      const p = offData.product;
+      const n = p.nutriments || {};
+      const hasServing = n['energy-kcal_serving'];
+      selectedFood = {
+        name: p.product_name || p.abbreviated_product_name || 'Unknown Product',
+        brand: p.brands || 'Generic',
+        servingDesc: p.serving_size || '100g',
+        perServing: {
+          cal: hasServing ? n['energy-kcal_serving'] : (n['energy-kcal_100g'] || 0),
+          pro: (hasServing ? n['proteins_serving'] : n['proteins_100g']) || 0,
+          carb: (hasServing ? n['carbohydrates_serving'] : n['carbohydrates_100g']) || 0,
+          fat: (hasServing ? n['fat_serving'] : n['fat_100g']) || 0,
+        }
+      };
+      showServingStep();
+      return;
+    }
+
+    // 3. Nothing found
+    status.textContent = 'Product not found — try searching by name.';
+    setTimeout(() => { closeScanner(); }, 2500);
 
   } catch(e) {
     status.textContent = 'Lookup failed. Check connection.';
@@ -1430,8 +1475,18 @@ async function lookupBarcode(barcode) {
   }
 }
 
+function showServingStep() {
+  document.getElementById('servingName').textContent = selectedFood.name;
+  document.getElementById('servingBrand').textContent = `${selectedFood.brand} · ${selectedFood.servingDesc} per serving`;
+  document.getElementById('servingQty').value = 1;
+  document.getElementById('searchStep').style.display = 'none';
+  document.getElementById('servingStep').classList.add('visible');
+  updatePreview();
+}
+
 // ─── INIT ─────────────────────────────────────────────────────
 renderMeals();
 </script>
+
 </body>
 </html>
