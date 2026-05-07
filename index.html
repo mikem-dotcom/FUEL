@@ -1419,35 +1419,14 @@ function closeScanner() {
 async function lookupBarcode(barcode) {
   const status = document.getElementById('barcodeStatus');
   try {
-    // 1. Try USDA direct UPC endpoint first
-    const usdaUrl = `https://api.nal.usda.gov/fdc/v1/foods/search?query=${barcode}&api_key=${USDA_KEY}&dataType=Branded&pageSize=5`;
-    const usdaRes = await fetch(usdaUrl);
-    const usdaData = await usdaRes.json();
+    status.textContent = 'Looking up product...';
+    const url = `https://world.openfoodfacts.org/api/v0/product/${barcode}.json`;
+    const res = await fetch(url);
+    const data = await res.json();
 
-    // Match barcode exactly, also try stripping leading zeros
-    const stripped = barcode.replace(/^0+/, '');
-    let food = (usdaData.foods || []).find(f =>
-      f.gtinUpc === barcode ||
-      f.gtinUpc === stripped ||
-      (f.gtinUpc && f.gtinUpc.replace(/^0+/, '') === stripped)
-    );
-
-    if (food) {
+    if (data.status === 1 && data.product && data.product.product_name) {
       closeScanner();
-      selectedFood = parseFoodItem(food);
-      showServingStep();
-      return;
-    }
-
-    // 2. Fall back to Open Food Facts
-    status.textContent = 'Checking backup database...';
-    const offUrl = `https://world.openfoodfacts.org/api/v0/product/${barcode}.json`;
-    const offRes = await fetch(offUrl);
-    const offData = await offRes.json();
-
-    if (offData.status === 1 && offData.product) {
-      closeScanner();
-      const p = offData.product;
+      const p = data.product;
       const n = p.nutriments || {};
       const hasServing = n['energy-kcal_serving'];
       selectedFood = {
@@ -1465,13 +1444,13 @@ async function lookupBarcode(barcode) {
       return;
     }
 
-    // 3. Nothing found
+    // Not found - close and let user search by name
     status.textContent = 'Product not found — try searching by name.';
     setTimeout(() => { closeScanner(); }, 2500);
 
   } catch(e) {
-    status.textContent = 'Lookup failed. Check connection.';
-    setTimeout(() => { status.textContent = 'Point camera at barcode'; }, 2000);
+    status.textContent = 'Connection failed — try searching by name.';
+    setTimeout(() => { closeScanner(); }, 2500);
   }
 }
 
